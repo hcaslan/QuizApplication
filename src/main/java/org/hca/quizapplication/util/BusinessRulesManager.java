@@ -1,4 +1,4 @@
-package org.hca.quizapplication.rules;
+package org.hca.quizapplication.util;
 
 import lombok.RequiredArgsConstructor;
 import org.hca.quizapplication.exception.ErrorType;
@@ -28,7 +28,7 @@ public class BusinessRulesManager implements IBusinessRules{
     }
 
     @Override
-    public void checkIfListEmpty(List<String> list) {
+    public void checkIfListValid(List<?> list) {
         if(list == null) throw new ValidationException(ErrorType.EMPTY_FIELD);
         if (list.isEmpty()) throw new ValidationException(ErrorType.EMPTY_FIELD);
     }

@@ -11,5 +11,5 @@ import java.util.List;
 
 public interface QuestionRepository extends JpaRepository<Question,Long> {
     @Query(value = "SELECT * FROM tblquestion ORDER BY RANDOM() LIMIT :questionCount", nativeQuery = true)
-    List<Question> findByLimitBy(@Param("questionCount") int questionCount);
+    List<Question> getQuestionsLimited(@Param("questionCount") int questionCount);
 }

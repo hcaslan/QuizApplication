@@ -26,19 +26,7 @@ public class GlobalExceptionHandler {
                 .message(ex.getMessage())
                 .build();
     }
-
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Map<String,String> handleException2(MethodArgumentNotValidException ex){
-        Map<String,String > error = new HashMap<>();
-        ex.getBindingResult().getAllErrors().forEach(errors -> {
-            String fieldName = ((FieldError) errors ).getField();
-            String errorMessage = errors.getDefaultMessage();
-            error.put(fieldName,errorMessage);
-        });
-        return error;
-    }
-    @ExceptionHandler(RuntimeException.class) // Hata yakalayici bir metod olduğunu belirtmek için.
+    @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<String> handleException(RuntimeException ex){
         return ResponseEntity.badRequest().body(ex.getMessage());
     }

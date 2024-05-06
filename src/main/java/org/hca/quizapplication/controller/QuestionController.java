@@ -1,14 +1,12 @@
 package org.hca.quizapplication.controller;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.hca.quizapplication.dto.request.QuestionCreateRequestDto;
 import org.hca.quizapplication.dto.response.QuestionCreateResponseDto;
-import org.hca.quizapplication.entity.Question;
+import org.hca.quizapplication.dto.response.QuestionResponseDto;
 import org.hca.quizapplication.service.QuestionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
 
@@ -24,4 +22,13 @@ public class QuestionController {
     public ResponseEntity<QuestionCreateResponseDto> createQuestion(@RequestBody QuestionCreateRequestDto requestDto) {
         return ResponseEntity.ok(questionService.createQuestion(requestDto));
     }
+    @GetMapping(FIND_ALL)
+    public ResponseEntity<List<QuestionResponseDto>> findAllQuestions() {
+        return ResponseEntity.ok(questionService.findAllQuestions());
+    }
+    @GetMapping(FIND_BY_ID)
+    public ResponseEntity<QuestionResponseDto> findQuestionById(@PathVariable Long id) {
+        return ResponseEntity.ok(questionService.findQuestionById(id));
+    }
+
 }

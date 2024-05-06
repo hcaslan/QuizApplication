@@ -22,7 +22,7 @@ public class Question {
     @Column(name = "id")
     private Long id;
 
-    @Size(min = 3, max = 200, message
+    @Size(min = 3, max = 2024, message
             = "questionText must be between 3 and 2024 characters")
     @NotNull(message = "questionText cannot be null")
     private String questionText;

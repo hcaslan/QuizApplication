@@ -1,16 +1,16 @@
 package org.hca.quizapplication.rules;
 
 import org.hca.quizapplication.entity.Answer;
-import org.hca.quizapplication.entity.Question;
 import org.hca.quizapplication.exception.ErrorType;
 import org.hca.quizapplication.exception.ValidationException;
+import org.hca.quizapplication.util.BusinessRulesManager;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
 import java.util.List;
 
 @Service
-public class AnswerBusinessRules extends BusinessRulesManager{
+public class AnswerBusinessRules extends BusinessRulesManager {
     public void validateAnswerFieldLengths(Answer answer){
         try{
             Field answerTextField = answer.getClass().getDeclaredField("answerText");
