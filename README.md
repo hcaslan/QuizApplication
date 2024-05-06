@@ -105,4 +105,4 @@ The project utilizes BusinessRules classes to encapsulate validation logic and e
 
 This project was developed for Java programming courses. [Bilge Adam](https://www.bilgeadam.com/).
 
-by [hcaslan](https://github.com/hcaslan).
+[github repository](https://github.com/hcaslan/QuizApplication.git).
